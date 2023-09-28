@@ -39,6 +39,12 @@ void heap_push(Heap* pq, void* data, int priority){
         }
         pq->capac = nueva_capacidad;
     }
+
+    // Insertar el nuevo elemento en la última posición del arreglo
+    int currentIndex = pq->size;
+    pq->heapArray[currentIndex].data = data;
+    pq->heapArray[currentIndex].priority = priority;
+    pq->size++;
 }
 
 
