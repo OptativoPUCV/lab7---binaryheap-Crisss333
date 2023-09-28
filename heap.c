@@ -18,7 +18,11 @@ typedef struct Heap{
 
 
 void* heap_top(Heap* pq){
-    return NULL;
+    if (pq->size <= 0) {
+        printf("El montículo está vacío, no se puede obtener el elemento de mayor prioridad.\n");
+        return NULL;
+    }
+    
 }
 
 
