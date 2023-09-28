@@ -22,7 +22,8 @@ void* heap_top(Heap* pq){
         printf("El montículo está vacío, no se puede obtener el elemento de mayor prioridad.\n");
         return NULL;
     }
-    
+    // El elemento de mayor prioridad está en la raíz (primera casilla)
+    return pq->heapArray[0].data;    
 }
 
 
