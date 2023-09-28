@@ -42,6 +42,11 @@ Heap* createHeap(){
     heap->capac = 3;  // Capacidad inicial de 3 casillas
     heap->size = 0;      // El montículo está vacío al principio
     heap->heapArray = (heapElem*)malloc(sizeof(heapElem) * heap->capac);
+
+    if (heap->heapArray == NULL) {
+        printf("Error: No se pudo asignar memoria para el arreglo de elementos del montículo.\n");
+        exit(1);  // Terminar el programa si no se puede asignar memoria
+    }
     
     return heap;
 }
