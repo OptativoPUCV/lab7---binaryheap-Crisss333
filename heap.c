@@ -54,12 +54,13 @@ void heap_push(Heap* pq, void* data, int priority){
             heapElem temp = pq->heapArray[currentIndex];
             pq->heapArray[currentIndex] = pq->heapArray[parentIndex];
             pq->heapArray[parentIndex] = temp;
+            
+            // Actualizar el índice del elemento que se está moviendo
             currentIndex = parentIndex;
         } else {
             break;  // El elemento está en la posición correcta
-        } 
+        }
     }
-  
 }
 
 
