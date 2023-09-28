@@ -27,7 +27,6 @@ void* heap_top(Heap* pq){
 }
 
 
-
 void heap_push(Heap* pq, void* data, int priority){
     if (pq->size >= pq->capac) {
         // Aumentar la capacidad del montículo al doble más uno
@@ -46,21 +45,7 @@ void heap_push(Heap* pq, void* data, int priority){
     pq->heapArray[currentIndex].priority = priority;
     pq->size++;
 
-    // Reorganizar el montículo para mantener la propiedad de montículo min
-    while (currentIndex > 0) {
-        int parentIndex = (currentIndex - 1) / 2;
-        if (pq->heapArray[currentIndex].priority < pq->heapArray[parentIndex].priority) {
-            // Intercambiar el elemento con su padre si su prioridad es menor
-            heapElem temp = pq->heapArray[currentIndex];
-            pq->heapArray[currentIndex] = pq->heapArray[parentIndex];
-            pq->heapArray[parentIndex] = temp;
-            
-            // Actualizar el índice del elemento que se está moviendo
-            currentIndex = parentIndex;
-        } else {
-            break;  // El elemento está en la posición correcta
-        }
-    }
+    
 }
 
 
