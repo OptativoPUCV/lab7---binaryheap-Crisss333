@@ -41,7 +41,7 @@ Heap* createHeap(){
 
     heap->capac = 3;  // Capacidad inicial de 3 casillas
     heap->size = 0;      // El montículo está vacío al principio
-    heap->heapArray = (heapElem*)malloc(sizeof(heapElem) * heap->capacity);
+    heap->heapArray = (heapElem*)malloc(sizeof(heapElem) * heap->capac);
     
     return heap;
 }
