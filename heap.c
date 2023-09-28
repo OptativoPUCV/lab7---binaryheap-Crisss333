@@ -46,6 +46,7 @@ void heap_push(Heap* pq, void* data, int priority){
     pq->heapArray[currentIndex].priority = priority;
     pq->size++;
 
+  /*
     // Reorganizar el montículo para mantener la propiedad de montículo min
     while (currentIndex > 0) {
         int parentIndex = (currentIndex - 1) / 2;
@@ -58,7 +59,8 @@ void heap_push(Heap* pq, void* data, int priority){
         } else {
             break;  // El elemento está en la posición correcta
         } 
-    } 
+    }
+  */
 }
 
 
