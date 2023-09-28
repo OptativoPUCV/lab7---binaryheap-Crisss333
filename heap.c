@@ -29,7 +29,16 @@ void* heap_top(Heap* pq){
 
 
 void heap_push(Heap* pq, void* data, int priority){
-
+    if (pq->size >= pq->capac) {
+        // Aumentar la capacidad del montículo al doble más uno
+        int nueva_capacidad = pq->capac * 2 + 1;
+        pq->heapArray = (heapElem*)realloc(pq->heapArray, sizeof(heapElem) * nueva_capacidad);
+        if (pq->heapArray == NULL) {
+            printf("Error: No se pudo aumentar la capacidad del montículo.\n");
+            exit(1);  // Terminar el programa si no se puede asignar memoria
+        }
+        pq->capac = nueva_capacidad;
+    }
 }
 
 
