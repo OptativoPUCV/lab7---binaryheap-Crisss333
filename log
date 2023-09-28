@@ -17,3 +17,14 @@ heap.c:44:66: error: ‘Heap’ {aka ‘struct Heap’} has no member named ‘c
       |                                                                  capac
 Compilation failed
 44cc6ec
+Thu 28 Sep 2023 06:51:06 PM UTC: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘createHeap’:
+heap.c:44:66: error: ‘Heap’ {aka ‘struct Heap’} has no member named ‘capacity’; did you mean ‘capac’?
+   44 |     heap->heapArray = (heapElem*)malloc(sizeof(heapElem) * heap->capacity);
+      |                                                                  ^~~~~~~~
+      |                                                                  capac
+Compilation failed
+4c4d5c4

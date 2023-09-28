@@ -39,7 +39,7 @@ Heap* createHeap(){
         exit(1);  // Terminar el programa si no se puede asignar memoria
     }
 
-    heap->capacity = 3;  // Capacidad inicial de 3 casillas
+    heap->capac = 3;  // Capacidad inicial de 3 casillas
     heap->size = 0;      // El montículo está vacío al principio
     heap->heapArray = (heapElem*)malloc(sizeof(heapElem) * heap->capacity);
     
