@@ -2,3 +2,18 @@ Thu 28 Sep 2023 06:44:34 PM UTC:
  tests:  0|4
 total_score: 0/70
 6b79366
+Thu 28 Sep 2023 06:50:48 PM UTC: 
+ heap.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘createHeap’:
+heap.c:42:11: error: ‘Heap’ {aka ‘struct Heap’} has no member named ‘capacity’; did you mean ‘capac’?
+   42 |     heap->capacity = 3;  // Capacidad inicial de 3 casillas
+      |           ^~~~~~~~
+      |           capac
+heap.c:44:66: error: ‘Heap’ {aka ‘struct Heap’} has no member named ‘capacity’; did you mean ‘capac’?
+   44 |     heap->heapArray = (heapElem*)malloc(sizeof(heapElem) * heap->capacity);
+      |                                                                  ^~~~~~~~
+      |                                                                  capac
+Compilation failed
+44cc6ec
