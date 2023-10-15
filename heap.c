@@ -45,8 +45,19 @@ void heap_push(Heap* pq, void* data, int priority){
     pq->heapArray[currentIndex].priority = priority;
     pq->size++;
 
-
-    
+    // Realizar el proceso de "burbujeo" para mantener las propiedades del montículo
+    while (index > 0) {
+        int parentIndex = (index - 1) / 2;
+        if (pq->heapArray[index].priority > pq->heapArray[parentIndex].priority) {
+            // Intercambiar el elemento actual con su padre
+            heapElem temp = pq->heapArray[index];
+            pq->heapArray[index] = pq->heapArray[parentIndex];
+            pq->heapArray[parentIndex] = temp;
+            index = parentIndex;
+        } else {
+            break;  // La propiedad del montículo está restaurada
+        }
+    }    
 }
 
 

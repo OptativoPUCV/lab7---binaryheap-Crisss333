@@ -117,3 +117,27 @@ Thu 28 Sep 2023 07:27:12 PM UTC:
  tests:  3|2
 total_score: 25/70
 66167e6
+Sun 15 Oct 2023 11:27:32 PM UTC: 
+ heap.c | 15 +++++++++++++--
+ 1 file changed, 13 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:50:39: error: invalid operands to binary / (have ‘char * (*)(const char *, int)’ and ‘int’)
+   50 |         int parentIndex = (index - 1) / 2;
+      |                           ~~~~~~~~~~~ ^
+      |                                  |
+      |                                  char * (*)(const char *, int)
+heap.c:51:26: error: array subscript is not an integer
+   51 |         if (pq->heapArray[index].priority > pq->heapArray[parentIndex].priority) {
+      |                          ^
+heap.c:53:42: error: array subscript is not an integer
+   53 |             heapElem temp = pq->heapArray[index];
+      |                                          ^
+heap.c:54:26: error: array subscript is not an integer
+   54 |             pq->heapArray[index] = pq->heapArray[parentIndex];
+      |                          ^
+heap.c:56:19: error: lvalue required as left operand of assignment
+   56 |             index = parentIndex;
+      |                   ^
+Compilation failed
+10dc345
