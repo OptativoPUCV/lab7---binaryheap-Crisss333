@@ -29,6 +29,40 @@ void* heap_top(Heap* pq){
 
 void heap_push(Heap* pq, void* data, int priority){
     if (pq->size >= pq->capac) {
+        // El montículo está lleno, aumenta su capacidad
+        pq->capac = pq->capac * 2 + 1;
+        pq->heapArray = (heapElem*)realloc(pq->heapArray, sizeof(heapElem) * pq->capac);
+        if (pq->heapArray == NULL) {
+            printf("Error: No se pudo asignar memoria para la expansión del montículo.\n");
+            exit(1);
+        }
+    }
+
+    // Agregar el nuevo elemento al final del montículo
+    int index = pq->size;
+    pq->heapArray[index].data = data;
+    pq->heapArray[index].priority = priority;
+    pq->size++;
+
+    // Realizar el proceso de "burbujeo" para mantener las propiedades del montículo
+    while (index > 0) {
+        int parentIndex = (index - 1) / 2;
+        if (pq->heapArray[index].priority > pq->heapArray[parentIndex].priority) {
+            // Intercambiar el elemento actual con su padre
+            heapElem temp = pq->heapArray[index];
+            pq->heapArray[index] = pq->heapArray[parentIndex];
+            pq->heapArray[parentIndex] = temp;
+            index = parentIndex;
+        } else {
+            break;  // La propiedad del montículo está restaurada
+        }
+    }
+}
+
+
+/*
+{
+    if (pq->size >= pq->capac) {
         // Aumentar la capacidad del montículo al doble más uno
         int nueva_capacidad = pq->capac * 2 + 1;
         pq->heapArray = (heapElem*)realloc(pq->heapArray, sizeof(heapElem) * nueva_capacidad);
@@ -59,7 +93,7 @@ void heap_push(Heap* pq, void* data, int priority){
         }
     }    
 }
-
+*/
 
 void heap_pop(Heap* pq){
 
