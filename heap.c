@@ -44,7 +44,7 @@ void heap_push(Heap* pq, void* data, int priority){
     pq->heapArray[index].priority = priority;
     pq->size++;
 
-    // Realizar el proceso de "burbujeo" para mantener las propiedades del montículo
+    // Reordenamiento para mantener las propiedades del montículo
     while (index > 0) {
         int parentIndex = (index - 1) / 2;
         if (pq->heapArray[index].priority > pq->heapArray[parentIndex].priority) {
@@ -58,42 +58,6 @@ void heap_push(Heap* pq, void* data, int priority){
         }
     }
 }
-
-
-/*
-{
-    if (pq->size >= pq->capac) {
-        // Aumentar la capacidad del montículo al doble más uno
-        int nueva_capacidad = pq->capac * 2 + 1;
-        pq->heapArray = (heapElem*)realloc(pq->heapArray, sizeof(heapElem) * nueva_capacidad);
-        if (pq->heapArray == NULL) {
-            printf("Error: No se pudo aumentar la capacidad del montículo.\n");
-            exit(1);  // Terminar el programa si no se puede asignar memoria
-        }
-        pq->capac = nueva_capacidad;
-    }
-
-    // Insertar el nuevo elemento en la última posición del arreglo
-    int currentIndex = pq->size;
-    pq->heapArray[currentIndex].data = data;
-    pq->heapArray[currentIndex].priority = priority;
-    pq->size++;
-
-    // Realizar el proceso de "burbujeo" para mantener las propiedades del montículo
-    while (index > 0) {
-        int parentIndex = (index - 1) / 2;
-        if (pq->heapArray[index].priority > pq->heapArray[parentIndex].priority) {
-            // Intercambiar el elemento actual con su padre
-            heapElem temp = pq->heapArray[index];
-            pq->heapArray[index] = pq->heapArray[parentIndex];
-            pq->heapArray[parentIndex] = temp;
-            index = parentIndex;
-        } else {
-            break;  // La propiedad del montículo está restaurada
-        }
-    }    
-}
-*/
 
 void heap_pop(Heap* pq){
 
