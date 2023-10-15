@@ -60,8 +60,46 @@ void heap_push(Heap* pq, void* data, int priority){
 }
 
 void heap_pop(Heap* pq){
+    if (pq->size <= 0) {
+        // El montículo está vacío, no se puede eliminar nada
+        printf("El montículo está vacío, no se puede eliminar el elemento de mayor prioridad.\n");
+        return;
+    }
 
+    // Reemplazar la raíz con el último elemento
+    pq->size--;
+    pq->heapArray[0] = pq->heapArray[pq->size];
+
+    // Realizar el proceso de "heapify" para mantener las propiedades del montículo
+    int index = 0;
+    while (true) {
+        int leftChild = 2 * index + 1;
+        int rightChild = 2 * index + 2;
+        int largest = index;
+
+        if (leftChild < pq->size && pq->heapArray[leftChild].priority > pq->heapArray[largest].priority) {
+            largest = leftChild;
+        }
+
+        if (rightChild < pq->size && pq->heapArray[rightChild].priority > pq->heapArray[largest].priority) {
+            largest = rightChild;
+        }
+
+        /*
+        if (largest != index) {
+            // Intercambiar el elemento actual con el hijo de mayor prioridad
+            heapElem temp = pq->heapArray[index];
+            pq->heapArray[index] = pq->heapArray[largest];
+            pq->heapArray[largest] = temp;
+            index = largest;
+        } else {
+            break;  // La propiedad del montículo está restaurada
+        }
+      */
+    }
 }
+
+
 
 Heap* createHeap(){
     Heap* heap = (Heap*)malloc(sizeof(Heap));
