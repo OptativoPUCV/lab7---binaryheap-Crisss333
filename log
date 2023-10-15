@@ -170,3 +170,9 @@ heap.c:75:12: note: each undeclared identifier is reported only once for each fu
       |            ^~~~
 Compilation failed
 593b918
+Sun 15 Oct 2023 11:38:22 PM UTC: 
+ heap.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+ tests:  8|0
+total_score: 70/70
+f40fb51

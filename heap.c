@@ -3,6 +3,7 @@
 #include <string.h>
 #include <math.h>
 #include <ctype.h>
+#include <stdbool.h>
 #include "heap.h"
 
 typedef struct nodo{
@@ -85,7 +86,6 @@ void heap_pop(Heap* pq){
             largest = rightChild;
         }
 
-        /*
         if (largest != index) {
             // Intercambiar el elemento actual con el hijo de mayor prioridad
             heapElem temp = pq->heapArray[index];
@@ -94,8 +94,7 @@ void heap_pop(Heap* pq){
             index = largest;
         } else {
             break;  // La propiedad del montículo está restaurada
-        }
-      */
+        }      
     }
 }
 
